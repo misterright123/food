@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<script>
+function myFunction() {
+document.getElementById("myDropdown").classList.toggle("show");
+}
+function display(){
+var date = new Date();
+var year = date.getUTCFullYear();
+var mon = date.getUTCMonth()+1;
+var day = date.getUTCDate();
+var hour = date.getHours();
+var min = date.getMinutes();
+var sec = date.getSeconds();
+document.getElementById("clock").innerHTML ="日期:"+ year + "年 " + mon + "月 " +day+ "日"
+document.getElementById("clock2").innerHTML ="時間:"+ hour + ":" + min + ": " +sec
+}
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+if (prevScrollpos > currentScrollPos) {
+document.getElementById("navbar").style.left= "0";
+} else {
+document.getElementById("navbar").style.left = "-200px";
+}
+prevScrollpos = currentScrollPos;
+}
+</script>
+<style>
+.dropdown {position: relative; display: inline-block;}
+.dropbtn {background-color:green; color: white; padding: 16px; font-size: 25px; border: none;}
+.dropdown-content {display: none; position: absolute; background-color: #f1f1f1; min-width: 160px; z-index: 1;}
+.dropdown-content a {color: black; padding: 12px 16px; text-decoration: none; display: block;}
+.show {display: block;}
+#header {height:150px;background-color:red;background-image: linear-gradient(red, yellow);padding:1em;}
+.column {float: left; width: 20%; height: 1000px; text-align: center;}
+.column2 {float: left; width: 80%; height: 1000px; text-align: center;background-image:url("GIF.gif");background-repeat:no-repeat ;background-size: 100% }
+#navbar {
+ position: fixed; top: 200px;left: 0px
+width: 100%; height: 50px; display: block; transition: top 0.3s;
+}
+a:link {color:yellow;}
+a:visited {color:blue;}
+a:hover {color:green;}
+p{text-align: center;}
+pre{text-align: center;}
+h1{text-align: center;style="font-size: 80px;color:#FF6347}
+</style>
+<body onload="setInterval(display, 1000);">
+<div id="header">	
+<h1 >台東美食地圖</h1>
+<p id="clock"></p>
+<p id="clock2"></p>
+</div>
+<div class="column">
+<div id="navbar">
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">~你想吃什麼~</button>
+<div id="myDropdown" class="dropdown-content">
+<a href="file:///C:/Users/User/Desktop/10604107/%E6%97%A9%E9%A4%90.html"><h2>早餐</h2></a>
+<a href="file:///C:/Users/User/Desktop/10604107/%E4%B8%AD%E9%A4%90&%E6%99%9A%E9%A4%90.html"><h2>中餐&晚餐</h2></a>
+<a href="file:///C:/Users/User/Desktop/10604107/%E5%AE%B5%E5%A4%9C.html"><h2>宵夜</h2></a>
+<a href="file:///C:/Users/User/Desktop/10604107/%E9%A3%AF%E5%BE%8C%E7%94%9C%E9%BB%9E.html"><h2>飯後甜點</h2></a>
+</div>
+</div>	
+</div>
+</div>
+<div class="column2">
+</div>
+
+</body>
+</html>
